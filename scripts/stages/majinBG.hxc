@@ -1,0 +1,59 @@
+import flixel.FlxG;
+import flixel.FlxSprite;
+import funkin.play.stage.Stage;
+import funkin.play.PlayState;
+import funkin.graphics.shaders.AdjustColorShader;
+import funkin.play.character.CharacterType;
+
+class MajinBGStage extends Stage
+{
+  function new()
+  {
+    super('majinBG');
+  }
+
+  var colorShader:AdjustColorShader;
+  var colorShaderDad:AdjustColorShader;
+
+
+  function buildStage()
+  {
+    super.buildStage();
+
+    colorShader = new AdjustColorShader();
+    colorShaderDad = new AdjustColorShader();
+
+  }
+
+  override function onCreate(event:ScriptEvent)
+  {
+    super.onCreate(event);
+
+    colorShader.hue = -100;
+    colorShader.saturation = -37;
+    colorShader.contrast = 0;
+    colorShader.brightness = -31;
+
+    colorShaderDad.hue = 0;
+    colorShaderDad.saturation = 0;
+    colorShaderDad.contrast = 0;
+    colorShaderDad.brightness = 0;
+  }
+
+  /**
+   * Apply the shader to the character as it is added.
+   */
+  override function addCharacter(character:BaseCharacter, charType:CharacterType):Void
+  {
+    super.addCharacter(character, charType);
+    switch (charType)
+    {
+      case CharacterType.BF:
+        character.shader = colorShader;
+      case CharacterType.GF:
+        character.shader = colorShader;
+      case CharacterType.DAD:
+        character.shader = colorShaderDad;
+    }
+  }
+}

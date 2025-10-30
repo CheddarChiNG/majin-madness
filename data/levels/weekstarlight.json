@@ -1,0 +1,9 @@
+{
+    "version": "1.0.0",
+    "name": "",
+    "titleAsset": "storymenu/titles/majinextra",
+    "props": [],
+    "visible": false,
+    "background": "#9271FD",
+    "songs": ["reflection", "starlight"]
+}
